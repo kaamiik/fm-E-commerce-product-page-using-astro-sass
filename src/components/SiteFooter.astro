@@ -19,6 +19,7 @@
   @use "../styles/abstracts" as *;
 
   .site-footer {
+    margin-block-start: auto;
     font-size: 11px;
     text-align: center;
     background-color: $footer-background-color;
@@ -31,6 +32,8 @@
 
       &:is(:hover, :focus) {
         color: $footer-link-color-hover;
+        text-decoration: $footer-link-text-decoration-hover;
+        text-decoration-thickness: 1.5px;
       }
     }
   }
