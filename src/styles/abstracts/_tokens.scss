@@ -13,15 +13,12 @@ $color-text-interactive-hover: $color-neutral-800;
 
 // set to 0 to disable
 $letter-spacing-loose: 2px;
-
 $border-radius-1: 0.625rem;
 $border-radius-2: 0.9375rem;
-
-$box-shadow-1: 0px 20px 50px -20px rgba(29, 32, 28, 0.5031),
-  0px 22px 18px rgba(29, 32, 28, 0.024), 0px 100px 80px rgba(29, 32, 28, 0.04);
-
-$box-shadow-2: 0px 20px 50px -20px rgb(255, 126, 27, 0.016),
-  0px 22px 18px rgb(255, 126, 27, 0.024), 0px 100px 80px rgb(255, 126, 27, 0.04);
+$box-shadow-1: 0 20px 50px -20px rgb(29 32 28 / 50.3%),
+  0 22px 18px rgb(29 32 28 / 2.4%), 0 100px 80px rgb(29 32 28 / 4%);
+$box-shadow-2: 0 20px 50px -20px rgb(255 126 27 / 1.6%),
+  0 22px 18px rgb(255 126 27 / 2.4%), 0 100px 80px rgb(255 126 27 / 4%);
 
 // body
 $body-font-family: $font-family-base;
@@ -30,17 +27,14 @@ $body-line-height: 1.6;
 $body-font-weight: $font-weight-default;
 $body-text-color: $color-text-default;
 $body-background-color: $color-background-default;
-
 $link-color: $color-text-interactive-default;
 $link-color-hover: $color-text-interactive-hover;
-
 $heading-font-family: $font-family-base;
 $heading-color-default: $color-neutral-800;
 $heading-font-weight: $font-weight-bold;
 $heading-letter-spacing: 0;
 $heading-line-height: 1.1;
 $heading-text-transform: none;
-
 $heading-1-font-size: $font-size-900;
 $heading-1-color: $heading-color-default;
 $heading-2-font-size: $font-size-800;
@@ -49,10 +43,8 @@ $heading-2-color: $heading-color-default;
 // layout
 $grid-gap: $size-6;
 $flex-group-gap: $size-4;
-
 $hero-padding-block: clamp(15rem, 15vh, 20rem);
 $section-padding-block: clamp(5rem, 10vh, 6rem);
-
 $container-min-margin-inline: $size-6;
 $container-max-width: 69.375rem;
 $container-max-width-narrow: 63.4375rem;
@@ -62,6 +54,8 @@ $container-max-width-wide: 75rem;
 $site-header-background-color: $color-neutral-100;
 $site-header-color: $color-neutral-600;
 $site-header-padding: $size-5 0 $size-6;
+$site-header-padding-desktop: $size-7 0 $size-9;
+$site-header-border-bottom-desktop: 1px solid $color-neutral-400;
 $site-header-margin: 0;
 $site-header-jusitifcation-small-screens: space-between;
 $site-header-jusitifcation-large-screens: space-between;
@@ -87,6 +81,7 @@ $navigation-font-weight: $body-font-weight;
 
 // site footer
 $footer-background-color: $color-neutral-100;
+$footer-font-size: $font-size-200;
 $footer-text-color: $color-neutral-800;
 $footer-link-color: $color-primary-500;
 $footer-link-color-hover: $color-primary-500;
@@ -110,7 +105,50 @@ $button-border-radius: $border-radius-1;
 $button-primary-color: $color-neutral-800;
 $button-primary-background: $color-primary-500;
 $button-primary-color-hover: $color-neutral-800;
-$button-primary-background-hover: $color-primary-400;
+$button-primary-background-hover: hsl(26, 100%, 71%);
+
+$product-details-max-width: 27.8125rem;
+$product-details-margin-inline: auto;
+
+$product-brand-font-size: $font-size-300;
+$product-brand-font-weight: $font-weight-bold;
+$product-brand-letter-spacing: $letter-spacing-loose;
+$product-brand-text-transform: uppercase;
+
+$product-title-margin-block-start: $size-4;
+$product-title-margin-block-start-desktop: $size-6;
+
+$product-description-margin-block-start: $size-4;
+$product-description-margin-block-start-desktop: $size-8;
+
+$product-price-margin-block: $size-6;
+$product-price-margin-block-desktop: $size-6 $size-8;
+$product-price-display: flex;
+$product-price-flex-wrap: wrap;
+$product-price-justify-content: space-between;
+$product-price-align-items: center;
+$product-price-flex-direction-desktop: column;
+$product-price-gap-desktop: $size-3;
+$product-price-align-items-desktop: flex-start;
+
+$product-price-info-display: flex;
+$product-price-info-flex-wrap: wrap;
+$product-price-info-gap: $size-4;
+
+$product-price-discount-percentage-background-color: $color-neutral-800;
+$product-price-discount-percentage-color: $color-neutral-100;
+$product-price-discount-percentage-font-size: $font-size-500;
+$product-price-discount-percentage-font-weight: $font-weight-bold;
+$product-price-discount-percentage-display: grid;
+$product-price-discount-percentage-place-content: center;
+$product-price-discount-percentage-padding: $size-1 $size-3;
+$product-price-discount-percentage-border-radius: 6px;
+
+$product-original-price-font-size: $font-size-500;
+$product-original-price-font-weight: $font-weight-bold;
+$product-original-price-text-decoration: line-through;
+
+$product-price-quantity-selector-position: relative;
 
 // cards
 // $card-flow-spacing: $size-2;
@@ -124,25 +162,17 @@ $button-primary-background-hover: $color-primary-400;
 // $card-heading-color-default: $card-color-default;
 // $card-heading-font-size: $font-size-600;
 
-// forms
-// $form-label-color: $body-text-color;
-// $form-label-font-family: $body-font-family;
-// $form-label-font-weight: $font-weight-bold;
-// $form-label-font-size: $body-font-size;
+$product-form-display: grid;
+$product-form-gap: $size-4;
+$product-form-display-option-desktop: 9.8125rem auto;
 
-// $form-input-color: $body-text-color;
-// $form-input-font-family: $body-font-family;
-// $form-input-font-weight: $font-weight-semi-bold;
-// $form-input-font-size: $body-font-size;
-// $form-input-background-color: $color-neutral-100;
-// $form-input-border-default: 3px solid $color-primary-200;
-// $form-input-border-focus: 3px solid $color-primary-400;
-// $form-input-padding: $size-3;
-// $form-input-border-radius: $border-radius-1;
-
-// $form-placeholder-color: $color-primary-300;
-// $form-placeholder-font-family: $form-input-font-family;
-// $form-placeholder-font-weight: $form-input-font-weight;
-// $form-placeholder-font-size: $body-font-size;
-
-// $form-group-spacing: 0.5rem;
+$form-input-width: 100%;
+$form-input-padding: 1.25em 0;
+$form-input-background-color: $color-neutral-200;
+$form-input-font-size: $font-size-500;
+$form-input-font-weight: $font-weight-bold;
+$form-input-border: 0;
+$form-input-border-radius: $border-radius-1;
+$form-input-line-height: 1;
+$form-input-text-align: center;
+$form-input-transition: 180ms box-shadow ease-in-out;
