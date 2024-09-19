@@ -13,7 +13,10 @@ if (href) El = "a";
 
   .button {
     display: inline-flex;
+    gap: $size-4;
     justify-content: center;
+    align-items: center;
+    width: 100%;
     cursor: pointer;
     text-decoration: none;
     line-height: 1;
@@ -36,14 +39,14 @@ if (href) El = "a";
       }
     }
 
-    &[data-type="accent"] {
-      background-color: $button-accent-background;
-      color: $button-accent-color;
+    // &[data-type="accent"] {
+    //   background-color: $button-accent-background;
+    //   color: $button-accent-color;
 
-      &:is(:hover, :focus) {
-        background-color: $button-accent-background-hover;
-        color: $button-accent-color-hover;
-      }
-    }
+    //   &:is(:hover, :focus) {
+    //     background-color: $button-accent-background-hover;
+    //     color: $button-accent-color-hover;
+    //   }
+    // }
   }
 </style>
