@@ -1,9 +1,7 @@
 $-ff-sans: "Kumbh Sans", system-ui;
 $-ff-serif: serif;
-
 $font-family-base: $-ff-sans;
 $font-family-accent: $-ff-sans;
-
 $font-sizes: (
   "small": (
     "900": 1.75rem,
@@ -24,7 +22,6 @@ $font-sizes: (
     "200": 0.75rem,
   ),
 );
-
 $font-size-200: var(--fs-200);
 $font-size-300: var(--fs-300);
 $font-size-400: var(--fs-400);
