@@ -1,14 +1,16 @@
 ---
-import SiteFooter from "../components/SiteFooter.astro";
-import SiteHeader from "../components/SiteHeader.astro";
 import Layout from "../layouts/BaseLayout.astro";
+import ProductGallery from "../components/ProductGallery.astro";
+import ProductDetails from "../components/ProductDetails.astro";
 ---
 
 <Layout title="Frontend Mentor | E-commerce product page">
-  <div class="container" data-type="narrow">
-    Collections Men Women About Contact Sneaker Company Fall Limited Edition
-    Sneakers These low-profile sneakers are your perfect casual wear companion.
-    Featuring a durable rubber outer sole, they’ll withstand everything the
-    weather can offer. $125.00 50% $250.00 0 Add to cart
+  <div class="container even-columns" data-type="narrow">
+    <ProductGallery />
+    <ProductDetails />
   </div>
 </Layout>
+
+<style lang="scss">
+  @use "../styles/abstracts/" as *;
+</style>
