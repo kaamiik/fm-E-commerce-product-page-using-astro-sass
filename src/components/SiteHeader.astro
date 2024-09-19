@@ -1,5 +1,6 @@
 ---
 import PrimaryNavigation from "./PrimaryNavigation.astro";
+import UserActions from "./UserActions.astro";
 // const { skipTo = "#main" } = Astro.props;
 ---
 
@@ -8,12 +9,15 @@ import PrimaryNavigation from "./PrimaryNavigation.astro";
 
   <div class="container">
     <div class="site-header__inner">
-      <a href="/index.html">
-        <img aria-hidden="true" src="/images/logo.svg" alt="" />
-        <p class="visually-hidden">NAME_OF_SITE</p>
-      </a>
+      <div class="flex-group">
+        <a href="/index.html">
+          <img aria-hidden="true" src="/assets/images/logo.svg" alt="" />
+          <p class="visually-hidden">Sneakers Website</p>
+        </a>
+        <PrimaryNavigation />
+      </div>
 
-      <PrimaryNavigation />
+      <UserActions />
     </div>
   </div>
 </header>
@@ -24,16 +28,19 @@ import PrimaryNavigation from "./PrimaryNavigation.astro";
   .site-header {
     color: $site-header-color;
     background-color: $site-header-background-color;
-    padding: $site-header-padding;
 
     &__inner {
       display: flex;
       gap: $size-4;
       align-items: $site-header-alignment;
       justify-content: $site-header-jusitifcation-small-screens;
+      padding: $site-header-padding;
 
-      @include mq(medium) {
+      @include mq(large) {
         justify-content: $site-header-jusitifcation-large-screens;
+        --flex-column-gap: #{$size-14};
+        padding: $site-header-padding-desktop;
+        border-bottom: $site-header-border-bottom-desktop;
       }
     }
   }
