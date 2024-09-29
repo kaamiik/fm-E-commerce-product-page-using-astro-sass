@@ -1,0 +1,66 @@
+---
+
+---
+
+<div class="product-price">
+  <div class="price-info">
+    <p class="current-price | heading-2" aria-describedby="current-price-info">
+      $125.00
+    </p>
+    <span id="current-price-info" class="visually-hidden">
+      The current price after discount.
+    </span>
+
+    <p class="discount-percentage" aria-describedby="discount-info">50%</p>
+    <span id="discount-info" class="visually-hidden">
+      This product is 50% off.
+    </span>
+  </div>
+
+  <p class="original-price" aria-describedby="original-price-info">$250.00</p>
+  <span id="original-price-info" class="visually-hidden">
+    The original price was $250 before discount.
+  </span>
+</div>
+
+<style lang="scss">
+  @use "../styles/abstracts/" as *;
+
+  .product-price {
+    margin-block: $product-price-margin-block;
+    display: $product-price-display;
+    flex-wrap: $product-price-flex-wrap;
+    justify-content: $product-price-justify-content;
+    align-items: $product-price-align-items;
+
+    @include mq(large) {
+      margin-block: $product-price-margin-block-desktop;
+      flex-direction: $product-price-flex-direction-desktop;
+      gap: $product-price-gap-desktop;
+      align-items: $product-price-align-items-desktop;
+    }
+  }
+
+  .price-info {
+    display: $product-price-info-display;
+    flex-wrap: $product-price-info-flex-wrap;
+    gap: $product-price-info-gap;
+
+    .discount-percentage {
+      background-color: $product-price-discount-percentage-background-color;
+      color: $product-price-discount-percentage-color;
+      font-size: $product-price-discount-percentage-font-size;
+      font-weight: $product-price-discount-percentage-font-weight;
+      display: $product-price-discount-percentage-display;
+      place-content: $product-price-discount-percentage-place-content;
+      padding: $product-price-discount-percentage-padding;
+      border-radius: $product-price-discount-percentage-border-radius;
+    }
+  }
+
+  .original-price {
+    font-size: $product-original-price-font-size;
+    font-weight: $product-original-price-font-weight;
+    text-decoration: $product-original-price-text-decoration;
+  }
+</style>
