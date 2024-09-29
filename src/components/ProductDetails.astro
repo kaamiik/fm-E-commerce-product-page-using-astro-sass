@@ -1,5 +1,7 @@
 ---
 import Button from "./Button.astro";
+import PriceInfo from "./PriceInfo.astro";
+import QuantitySelectorInput from "../components/QuantitySelectorInput.astro";
 ---
 
 <div class="product-details">
@@ -13,68 +15,10 @@ import Button from "./Button.astro";
     offer.
   </p>
 
-  <div class="product-price">
-    <div class="price-info">
-      <p class="current-price | heading-2">$125.00</p>
-      <p class="discount-percentage">50%</p>
-    </div>
-    <p class="original-price">$250.00</p>
-  </div>
+  <PriceInfo />
 
   <form class="product-form" action="/">
-    <div class="quantity-selector">
-      <div class="quantity-field">
-        <label for="quantity-input" class="visually-hidden">Quantity</label>
-        <input
-          type="number"
-          name="quantity"
-          id="quantity-input"
-          class="quantity-input"
-          value="0"
-          min="0"
-          aria-label="Product quantity"
-        />
-      </div>
-
-      <button
-        type="button"
-        class="quantity-decrease"
-        aria-label="Decrease quantity"
-        ><svg
-          aria-hidden="true"
-          focusable="false"
-          width="12"
-          height="4"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          ><defs
-            ><path
-              d="M11.357 3.332A.641.641 0 0 0 12 2.69V.643A.641.641 0 0 0 11.357 0H.643A.641.641 0 0 0 0 .643v2.046c0 .357.287.643.643.643h10.714Z"
-              id="a"></path></defs
-          ><use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#a"></use></svg
-        ></button
-      >
-
-      <button
-        type="button"
-        class="quantity-increase"
-        aria-label="Increase quantity"
-        ><svg
-          aria-hidden="true"
-          focusable="false"
-          width="12"
-          height="12"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          ><defs
-            ><path
-              d="M12 7.023V4.977a.641.641 0 0 0-.643-.643h-3.69V.643A.641.641 0 0 0 7.022 0H4.977a.641.641 0 0 0-.643.643v3.69H.643A.641.641 0 0 0 0 4.978v2.046c0 .356.287.643.643.643h3.69v3.691c0 .356.288.643.644.643h2.046a.641.641 0 0 0 .643-.643v-3.69h3.691A.641.641 0 0 0 12 7.022Z"
-              id="b"></path></defs
-          ><use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#b"></use></svg
-        ></button
-      >
-    </div>
-
+    <QuantitySelectorInput />
     <Button theme="primary">
       <svg
         aria-hidden="true"
@@ -98,6 +42,11 @@ import Button from "./Button.astro";
   .product-details {
     max-width: $product-details-max-width;
     margin-inline: $product-details-margin-inline;
+    order: 2;
+    @include mq(large) {
+      padding-block-start: 3.5625rem;
+      padding-block-end: 4.8125rem;
+    }
   }
 
   .product-brand {
@@ -123,116 +72,12 @@ import Button from "./Button.astro";
     }
   }
 
-  .product-price {
-    margin-block: $product-price-margin-block;
-    display: $product-price-display;
-    flex-wrap: $product-price-flex-wrap;
-    justify-content: $product-price-justify-content;
-    align-items: $product-price-align-items;
-
-    @include mq(large) {
-      margin-block: $product-price-margin-block-desktop;
-      flex-direction: $product-price-flex-direction-desktop;
-      gap: $product-price-gap-desktop;
-      align-items: $product-price-align-items-desktop;
-    }
-  }
-
-  .price-info {
-    display: $product-price-info-display;
-    flex-wrap: $product-price-info-flex-wrap;
-    gap: $product-price-info-gap;
-
-    .discount-percentage {
-      background-color: $product-price-discount-percentage-background-color;
-      color: $product-price-discount-percentage-color;
-      font-size: $product-price-discount-percentage-font-size;
-      font-weight: $product-price-discount-percentage-font-weight;
-      display: $product-price-discount-percentage-display;
-      place-content: $product-price-discount-percentage-place-content;
-      padding: $product-price-discount-percentage-padding;
-      border-radius: $product-price-discount-percentage-border-radius;
-    }
-  }
-
-  .original-price {
-    font-size: $product-original-price-font-size;
-    font-weight: $product-original-price-font-weight;
-    text-decoration: $product-original-price-text-decoration;
-  }
-
   .product-form {
     display: $product-form-display;
     gap: $product-form-gap;
 
     @include mq(large) {
       grid-template-columns: $product-form-display-option-desktop;
-    }
-  }
-
-  .quantity-selector {
-    position: $product-price-quantity-selector-position;
-
-    // $-clr-orange color
-    --input-focus-h: 220;
-    --input-focus-s: 14%;
-    --input-focus-l: 31%;
-
-    button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      position: absolute;
-      top: 1.25em;
-      // transform: translateY(-50%);
-    }
-
-    .quantity-decrease {
-      top: 1.1em;
-      left: $size-6;
-    }
-    .quantity-increase {
-      right: $size-6;
-    }
-  }
-
-  // Delete the top bottom arrow from input type number
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  input[type="number"] {
-    -moz-appearance: textfield;
-  }
-
-  input[type="number"] {
-    width: $form-input-width;
-    padding: $form-input-padding;
-    background-color: $form-input-background-color;
-    font-size: $form-input-font-size;
-    font-weight: $form-input-font-weight;
-    border: $form-input-border;
-    border-radius: $form-input-border-radius;
-    line-height: $form-input-line-height;
-    text-align: $form-input-text-align;
-    transition: $form-input-transition;
-
-    &:focus {
-      border-color: hsl(
-        var(--input-focus-h),
-        var(--input-focus-s),
-        var(--input-focus-l)
-      );
-
-      box-shadow: 0 0 0 4px
-        hsla(
-          var(--input-focus-h),
-          var(--input-focus-s),
-          calc(var(--input-focus-l)),
-          0.9
-        );
-      outline: 3px solid transparent;
     }
   }
 </style>
