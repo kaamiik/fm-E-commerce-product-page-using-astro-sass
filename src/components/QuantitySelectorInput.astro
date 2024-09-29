@@ -1,0 +1,122 @@
+---
+
+---
+
+<div class="quantity-selector">
+  <div class="quantity-field">
+    <label for="quantity-input" class="visually-hidden"
+      >Enter Number of items</label
+    >
+    <input
+      type="number"
+      name="quantity"
+      id="quantity-input"
+      class="quantity-input"
+      placeholder="0"
+      min="0"
+    />
+  </div>
+
+  <button type="button" class="quantity-decrease" aria-label="Decrease quantity"
+    ><svg
+      aria-hidden="true"
+      focusable="false"
+      width="12"
+      height="4"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      ><defs
+        ><path
+          d="M11.357 3.332A.641.641 0 0 0 12 2.69V.643A.641.641 0 0 0 11.357 0H.643A.641.641 0 0 0 0 .643v2.046c0 .357.287.643.643.643h10.714Z"
+          id="a"></path></defs
+      ><use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#a"></use></svg
+    ></button
+  >
+
+  <button type="button" class="quantity-increase" aria-label="Increase quantity"
+    ><svg
+      aria-hidden="true"
+      focusable="false"
+      width="12"
+      height="12"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      ><defs
+        ><path
+          d="M12 7.023V4.977a.641.641 0 0 0-.643-.643h-3.69V.643A.641.641 0 0 0 7.022 0H4.977a.641.641 0 0 0-.643.643v3.69H.643A.641.641 0 0 0 0 4.978v2.046c0 .356.287.643.643.643h3.69v3.691c0 .356.288.643.644.643h2.046a.641.641 0 0 0 .643-.643v-3.69h3.691A.641.641 0 0 0 12 7.022Z"
+          id="b"></path></defs
+      ><use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#b"></use></svg
+    ></button
+  >
+</div>
+
+<style lang="scss">
+  @use "../styles/abstracts/" as *;
+
+  .quantity-selector {
+    position: $product-price-quantity-selector-position;
+
+    // $-clr-orange color
+    --input-focus-h: 220;
+    --input-focus-s: 14%;
+    --input-focus-l: 31%;
+
+    button {
+      position: absolute;
+      top: 1.25em;
+    }
+
+    .quantity-decrease {
+      top: 1.1em;
+      left: $size-6;
+    }
+    .quantity-increase {
+      right: $size-6;
+    }
+  }
+
+  .quantity-decrease:is(:hover, :focus) use,
+  .quantity-increase:is(:hover, :focus) use {
+    fill: $color-primary-400;
+  }
+
+  // Delete the top bottom arrow from input type number
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  input[type="number"] {
+    width: $form-input-width;
+    padding: $form-input-padding;
+    background-color: $form-input-background-color;
+    font-size: $form-input-font-size;
+    font-weight: $form-input-font-weight;
+    border: $form-input-border;
+    border-radius: $form-input-border-radius;
+    line-height: $form-input-line-height;
+    text-align: $form-input-text-align;
+    transition: $form-input-transition;
+
+    &:focus {
+      border-color: hsl(
+        var(--input-focus-h),
+        var(--input-focus-s),
+        var(--input-focus-l)
+      );
+
+      box-shadow: 0 0 0 4px
+        hsla(
+          var(--input-focus-h),
+          var(--input-focus-s),
+          calc(var(--input-focus-l)),
+          0.9
+        );
+      outline: 3px solid transparent;
+    }
+  }
+</style>
