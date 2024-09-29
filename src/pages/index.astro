@@ -2,15 +2,13 @@
 import Layout from "../layouts/BaseLayout.astro";
 import ProductGallery from "../components/ProductGallery.astro";
 import ProductDetails from "../components/ProductDetails.astro";
+import CartDialog from "../components/CartDialog.astro";
 ---
 
 <Layout title="Frontend Mentor | E-commerce product page">
   <div class="container even-columns" data-type="narrow">
-    <ProductGallery />
     <ProductDetails />
+    <ProductGallery />
   </div>
+  <CartDialog />
 </Layout>
-
-<style lang="scss">
-  @use "../styles/abstracts/" as *;
-</style>
