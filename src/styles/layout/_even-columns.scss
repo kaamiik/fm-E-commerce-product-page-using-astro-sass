@@ -4,7 +4,7 @@
   display: grid;
   gap: var(--grid-gap, $grid-gap);
 
-  @include mq(medium) {
+  @include mq(large) {
     --grid-gap: #{$size-24};
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
