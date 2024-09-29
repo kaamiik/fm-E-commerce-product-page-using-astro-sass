@@ -71,13 +71,15 @@ $site-header-alignment: center;
 // $skip-nav-position: center;
 
 //navigation
-$navigation-color: $site-header-color;
+$navigation-color-hamburger: $color-neutral-900;
+$navigation-color-desktop: $site-header-color;
 $navigation-color-hover: $color-neutral-800;
 $navigation-font-size: $font-size-600;
 $navigation-gap: $size-8;
 $navigation-link-text-decoration: none;
 $navigation-font-family: $body-font-family;
-$navigation-font-weight: $body-font-weight;
+$navigation-font-weight-desktop: $font-weight-default;
+$navigation-font-weight-hamburger: $font-weight-bold;
 
 // site footer
 $footer-background-color: $color-neutral-100;
@@ -176,3 +178,5 @@ $form-input-border-radius: $border-radius-1;
 $form-input-line-height: 1;
 $form-input-text-align: center;
 $form-input-transition: 180ms box-shadow ease-in-out;
+
+$product-gallery-max-width: 34.375rem;
