@@ -1,17 +1,19 @@
 ---
 import PrimaryNavigation from "./PrimaryNavigation.astro";
 import UserActions from "./UserActions.astro";
-// const { skipTo = "#main" } = Astro.props;
 ---
 
 <header class="site-header">
-  <!-- <a href={skipTo} class="skip-navigation">Skip to content</a> -->
-
   <div class="container">
     <div class="site-header__inner">
       <div class="flex-group">
-        <a href="/index.html">
-          <img aria-hidden="true" src="/assets/images/logo.svg" alt="" />
+        <a class="logo--link" href="/index.html">
+          <img
+            class="logo"
+            aria-hidden="true"
+            src="/assets/images/logo.svg"
+            alt=""
+          />
           <p class="visually-hidden">Sneakers Website</p>
         </a>
         <PrimaryNavigation />
@@ -25,6 +27,22 @@ import UserActions from "./UserActions.astro";
 <style lang="scss">
   @use "../styles/abstracts" as *;
 
+  .logo--link {
+    &:focus {
+      outline: 4px dotted $color-primary-500;
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+  }
+
+  .logo {
+    width: 100px;
+
+    @include mq(small) {
+      width: 100%;
+    }
+  }
+
   .site-header {
     color: $site-header-color;
     background-color: $site-header-background-color;
@@ -36,7 +54,7 @@ import UserActions from "./UserActions.astro";
       justify-content: $site-header-jusitifcation-small-screens;
       padding: $site-header-padding;
 
-      @include mq(large) {
+      @include mq(medium) {
         justify-content: $site-header-jusitifcation-large-screens;
         --flex-column-gap: #{$size-14};
         padding: $site-header-padding-desktop;
