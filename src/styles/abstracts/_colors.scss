@@ -4,9 +4,9 @@ $-clr-light-grayish-blue: hsl(223deg 64% 98%);
 $-clr-grayish-blue: hsl(220deg 35% 92%);
 $-clr-dark-grayish-blue: hsl(220deg 9% 45%);
 $-clr-very-dark-blue: hsl(220deg 14% 13%);
-$-clr-black: hsl(0deg 0% 0%);
+$-clr-black: hsl(0, 0%, 0%);
 $-clr-orange: hsl(26deg 100% 55%);
-$-clr-pale-orange: hsl(25deg 100% 94%);
+$-clr-pale-orange: hsl(25deg 100% 71%);
 $light: (
   "neutral": (
     "100": $-clr-white,
@@ -21,44 +21,6 @@ $light: (
     "500": $-clr-orange,
   ),
 );
-
-// $dark: (
-//   "neutral": (
-//     "1000": $-clr-white,
-//     "900": $-clr-gray-100,
-//     "800": $-clr-gray-200,
-//     "700": $-clr-gray-300,
-//     "600": $-clr-gray-400,
-//     "500": $-clr-gray-500,
-//     "400": $-clr-gray-600,
-//     "300": $-clr-gray-700,
-//     "200": $-clr-gray-800,
-//     "100": $-clr-gray-900,
-//     "000": $-clr-black,
-//   ),
-//   "accent": (
-//     "900": $-clr-deeppink-900,
-//     "800": $-clr-deeppink-800,
-//     "700": $-clr-deeppink-700,
-//     "600": $-clr-deeppink-600,
-//     "500": $-clr-deeppink-500,
-//     "400": $-clr-deeppink-400,
-//     "300": $-clr-deeppink-300,
-//     "200": $-clr-deeppink-200,
-//     "100": $-clr-deeppink-100,
-//   ),
-//   "primary": (
-//     "900": $-clr-skyblue-900,
-//     "800": $-clr-skyblue-800,
-//     "700": $-clr-skyblue-700,
-//     "600": $-clr-skyblue-600,
-//     "500": $-clr-skyblue-500,
-//     "400": $-clr-skyblue-400,
-//     "300": $-clr-skyblue-300,
-//     "200": $-clr-skyblue-200,
-//     "100": $-clr-skyblue-100,
-//   ),
-// );
 
 // contextual color tokens
 $color-neutral-100: var(--neutral-100);
