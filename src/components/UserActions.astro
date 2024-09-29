@@ -3,7 +3,14 @@
 ---
 
 <div class="user-action | flex-group">
-  <button class="user-action__btn icon-cart__btn" aria-label="View Cart">
+  <button
+    class="user-action__btn"
+    aria-expanded="false"
+    aria-controls="cart-dialog"
+    aria-live="polite"
+  >
+    <span class="visually-hidden">View Cart</span>
+    <span class="quantity-badge zero-opacity"></span>
     <svg
       aria-hidden="true"
       focusable="false"
@@ -29,20 +36,39 @@
 
   .user-action {
     --flex-column-gap: #{$size-6};
+    align-items: center;
 
-    @include mq(large) {
+    @include mq(medium) {
       --flex-column-gap: #{$size-12};
     }
 
     &__btn {
-      border: none;
-      background: none;
-      cursor: pointer;
+      border-radius: 100vh;
       line-height: 1;
+      position: relative;
+
+      &:focus-visible {
+        outline: 4px dotted $color-primary-500;
+        outline-offset: 6px;
+        border-radius: 100vh;
+      }
     }
   }
 
-  svg:hover {
+  .quantity-badge {
+    background-color: $color-primary-500;
+    border-radius: 100vh;
+    color: $color-neutral-100;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 1;
+    padding: 1px 6px;
+    position: absolute;
+    top: -2px;
+    right: -2px;
+  }
+
+  .user-action__btn:is(:hover, :focus) svg {
     path {
       fill: black;
     }
@@ -53,7 +79,7 @@
       width: 24px;
       height: 24px;
 
-      @include mq(large) {
+      @include mq(medium) {
         width: 50px;
         height: 50px;
       }
@@ -61,9 +87,8 @@
     border-radius: 100vh;
     aspect-ratio: 1 / 1;
     outline: 2px solid transparent;
-    outline-offset: -5px;
 
-    &:hover {
+    &:is(:hover, :focus) {
       outline-color: $color-primary-500;
     }
   }
