@@ -11,10 +11,15 @@ body {
   flex-direction: column;
 }
 
+body:has(.nav__open[aria-expanded="true"]) {
+  overflow-y: hidden;
+}
+
 main {
-  margin-block-end: $size-18;
-  @include mq(large) {
-    margin-block: $size-22 $size-24;
+  padding-block-end: $size-18;
+  position: relative;
+  @include mq(medium) {
+    padding-block: $size-22 $size-24;
   }
 }
 
