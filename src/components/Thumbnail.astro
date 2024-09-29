@@ -27,9 +27,11 @@ const thumbnails = [
   {
     thumbnails.map((thumbnail, index) => (
       <button class="thumbnail" aria-label={thumbnail.ariaLabel}>
-        <div class={`thumbnail-img-wrapper ${index === 0 ? "active-img" : ""}`}>
+        <span
+          class={`thumbnail-img-wrapper ${index === 0 ? "active-img" : ""}`}
+        >
           <img src={thumbnail.src} alt={thumbnail.alt} />
-        </div>
+        </span>
       </button>
     ))
   }
@@ -52,6 +54,7 @@ const thumbnails = [
     outline: 0;
 
     & img {
+      aspect-ratio: 1 / 1;
       border-radius: $border-radius-1;
       object-fit: cover;
       width: 88px;
@@ -60,6 +63,7 @@ const thumbnails = [
   }
 
   .thumbnail-img-wrapper {
+    display: block;
     position: relative;
   }
 
