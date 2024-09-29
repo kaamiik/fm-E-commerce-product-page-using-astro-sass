@@ -1,0 +1,83 @@
+---
+const thumbnails = [
+  {
+    src: "/assets/images/image-product-1-thumbnail.jpg",
+    alt: "Thumbnail 1",
+    ariaLabel: "image 1",
+  },
+  {
+    src: "/assets/images/image-product-2-thumbnail.jpg",
+    alt: "Thumbnail 2",
+    ariaLabel: "image 2",
+  },
+  {
+    src: "/assets/images/image-product-3-thumbnail.jpg",
+    alt: "Thumbnail 3",
+    ariaLabel: "image 3",
+  },
+  {
+    src: "/assets/images/image-product-4-thumbnail.jpg",
+    alt: "Thumbnail 4",
+    ariaLabel: "image 4",
+  },
+];
+---
+
+<div class="thumbnails">
+  {
+    thumbnails.map((thumbnail, index) => (
+      <button class="thumbnail" aria-label={thumbnail.ariaLabel}>
+        <div class={`thumbnail-img-wrapper ${index === 0 ? "active-img" : ""}`}>
+          <img src={thumbnail.src} alt={thumbnail.alt} />
+        </div>
+      </button>
+    ))
+  }
+</div>
+
+<style lang="scss">
+  @use "../styles/abstracts/" as *;
+
+  .thumbnails {
+    display: none;
+
+    @include mq(small) {
+      display: flex;
+      justify-content: center;
+      gap: $size-8;
+    }
+  }
+
+  .thumbnail {
+    outline: 0;
+
+    & img {
+      border-radius: $border-radius-1;
+      object-fit: cover;
+      width: 88px;
+      height: 88px;
+    }
+  }
+
+  .thumbnail-img-wrapper {
+    position: relative;
+  }
+
+  .thumbnail:hover .thumbnail-img-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: $border-radius-1;
+  }
+
+  .thumbnail:focus-visible .thumbnail-img-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: $border-radius-1;
+    outline: 6px dotted $color-primary-500;
+    outline-offset: 6px;
+  }
+</style>
