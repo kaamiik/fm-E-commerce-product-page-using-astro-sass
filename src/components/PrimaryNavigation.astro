@@ -2,35 +2,184 @@
 
 ---
 
-<nav aria-label="primary navigation">
-  <!-- <ul class="nav | flex-group">
-    <li><a href="#">Collections</a></li>
-    <li><a href="#">Men</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul> -->
-</nav>
+<nav class="nav" aria-label="Site">
+  <button
+    class="nav__open js-btnOpen"
+    aria-expanded="false"
+    aria-labelledby="nav-label"
+  >
+    <span id="nav-label" class="visually-hidden">Navigation</span>
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      width="24"
+      height="24"
+      viewBox="0 0 16 15"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16 12v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z"
+        fill="#69707D"
+        fill-rule="evenodd"></path>
+    </svg>
+  </button>
 
-<style lang="scss">
-  @use "../styles/abstracts" as *;
-  .nav {
-    --flex-column-gap: #{$navigation-gap};
+  <div class="nav__overlay" aria-hidden="true"></div>
 
-    list-style: none;
-    font-family: $navigation-font-family;
-    font-weight: $navigation-font-weight;
+  <div class="nav__content" role="dialog" aria-labelledby="nav-label">
+    <button class="nav__close js-btnClose" aria-label="close">
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        width="24"
+        height="24"
+        viewBox="0 0 14 14"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
+          fill="#69707D"
+          fill-rule="evenodd"></path>
+      </svg>
+    </button>
+    <ul class="nav__links">
+      <li><a href="#">Collections</a></li>
+      <li><a href="#">Men</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
 
-    a {
-      color: $navigation-color;
-      text-decoration: $navigation-link-text-decoration;
+  <style lang="scss">
+    @use "../styles/abstracts" as *;
 
-      &:is(:hover, :focus) {
-        color: $navigation-color-hover;
-        text-decoration: underline;
-        text-decoration-color: $color-primary-500;
-        text-decoration-thickness: 4px;
-        text-underline-offset: $size-14;
+    .nav {
+      order: -1;
+      @include mq(medium) {
+        order: 0;
+      }
+      &__open {
+        margin-block-start: $size-2;
+
+        @include mq(medium) {
+          display: none;
+        }
+
+        &:focus-visible {
+          outline: 4px dotted $color-primary-500;
+          outline-offset: 6px;
+          border-radius: 100vh;
+        }
+      }
+
+      &__open[aria-expanded="true"] {
+        ~ .nav__content {
+          translate: 0;
+
+          @media (prefers-reduced-motion) {
+            opacity: 1;
+          }
+        }
+
+        ~ .nav__overlay {
+          opacity: 0.75;
+        }
+      }
+
+      &__content {
+        @media (width <= 45em) {
+          display: none;
+          position: fixed;
+          inset: 0 7.8125rem 0 0;
+          background-color: $color-neutral-100;
+          padding: $size-6;
+          translate: -100vw 0;
+          transition: translate 500ms ease-in-out;
+          z-index: 100;
+        }
+
+        @media (prefers-reduced-motion) {
+          translate: 0;
+          opacity: 0;
+          transition: translate 500ms ease-in-out;
+        }
+      }
+
+      &__close {
+        margin-block-end: $size-13;
+
+        &:focus-visible {
+          outline: 4px dotted $color-primary-500;
+          outline-offset: 6px;
+          border-radius: 100vh;
+        }
+
+        @include mq(medium) {
+          display: none;
+        }
+      }
+
+      &__overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background-color: $color-neutral-900;
+        opacity: 0;
+        transition: opacity 300ms ease-in-out;
+        pointer-events: none;
+        z-index: 100;
+      }
+
+      &__links {
+        list-style: none;
+        font-family: $navigation-font-family;
+        font-weight: $navigation-font-weight-hamburger;
+        display: flex;
+        flex-direction: column;
+        gap: $size-5;
+
+        @include mq(medium) {
+          font-weight: $navigation-font-weight-desktop;
+          flex-direction: row;
+          gap: $size-8;
+        }
+
+        a {
+          color: $navigation-color-hamburger;
+          position: relative;
+          text-decoration: $navigation-link-text-decoration;
+          @include mq(medium) {
+            color: $navigation-color-desktop;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 71px;
+            width: 0;
+            height: 4px;
+            background-color: $color-primary-500;
+            transition: width 0.5s ease;
+          }
+
+          &:is(:hover, :focus)::after {
+            @include mq(medium) {
+              width: 100%;
+            }
+          }
+
+          &:is(:hover, :focus) {
+            color: $navigation-color-hover;
+          }
+
+          &:focus {
+            outline: 4px dotted $color-primary-500;
+            outline-offset: 4px;
+            border-radius: 4px;
+          }
+        }
       }
     }
-  }
-</style>
+  </style>
+</nav>
