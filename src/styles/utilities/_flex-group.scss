@@ -3,6 +3,7 @@
 .flex-group {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   column-gap: var(--flex-column-gap, $flex-group-gap);
   row-gap: var(--flex-row-gap, $flex-group-gap);
 }
